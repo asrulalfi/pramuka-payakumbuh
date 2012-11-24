@@ -1,0 +1,78 @@
+/* CSS Document */
+
+#overlay {
+	color:#333333;
+	font-weight: bold;
+	font-family: "Times New Roman", Times, serif;
+	line-height: 22px;	
+	text-align: justify;
+}
+	
+/* container for external content. uses vertical scrollbar, if needed */
+div.content_skripsi {
+	width: 630px;
+	height:441px;
+	overflow-y:auto;
+}
+
+
+
+/* the overlayed element */
+.wrapper_overlay {
+	
+	/* initially overlay is hidden */
+	display:none;
+	
+	/* growing background image */
+	background: #ffffff;
+	border: 1px solid #292929;
+	
+	-moz-border-radius: .3em;
+	-webkit-border-radius: .3em;
+	-o-border-radius: .3em;
+	border-radius: .3em;
+	
+	
+	/* 
+		width after the growing animation finishes
+		height is automatically calculated
+	*/
+	width:640px;		
+	
+	/* some padding to layout nested elements nicely  */
+	padding:10px;
+	
+	position: relative;
+}
+
+/* default close button positioned on upper right corner */
+.wrapper_overlay .close {
+	position:absolute; 
+	right:0; 
+	top:-30px;
+	cursor:pointer;
+	z-index: 999;
+	padding: 5px;
+	
+	background-image: -moz-linear-gradient(top, #f14545, #d90d0d);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f14545), to(#d90d0d));
+				/* For Internet Explorer 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f14545, endColorstr=#d90d0d);
+			/* For Internet Explorer 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f14545, endColorstr=#d90d0d)";
+	
+	border: 1px solid #d90d0d;
+	
+	-moz-border-radius: .3em;
+	-webkit-border-radius: .3em;
+	-o-border-radius: .3em;
+	border-radius: .3em;
+	
+	
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+
+
