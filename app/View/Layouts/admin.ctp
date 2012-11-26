@@ -57,24 +57,7 @@ $cakeDescription = __d('cake_dev', 'Pramukap payakumbuh');
         </div>
         <div class="clean"></div> <!-- pembersih part -->
         <div id="menu">
-        <ul>
-          <li><?php echo $this->Html->link(__('Dashboard'), array('controller' => 'posts', 'action' => 'pending_posts'), 
-                    array('class' => 'dashboard')); ?>
-          </li>
-          <li><?php echo $this->Html->link(__('Berita'), array(
-                 'controller' => 'posts', 'action' => 'list_posts'), array('class' => 'judul')); 
-                ?>
-          </li>
-          <li><?php echo $this->Html->link(__('Galery'), array('controller' => 'Galleries', 'action' => 'index'),
-                    array('class' => 'judul')); ?>
-          </li>
-          <li><a href="?pil=pages" class="judul">Pages</a></li>
-          <li><a href="?pil=komentar" class="judul">Komentar</a></li>
-          <li><?php echo $this->Html->link(__('Users'), array('controller' => 'users', 'action' => 'index'), 
-                array('class' => 'user')); ?></li>
-          <li><?php echo $this->Html->link(__('logout'), array('controller' => 'users', 'action' => 'logout'),
-                array('class' => 'logout')); ?></li>
-        </ul>
+          <?php $this->Custom->displayMenu($this->Session->read('Auth.User.level')); ?>
         <div class="clean"></div> <!-- pembersih part -->
     </div>
   </div>  

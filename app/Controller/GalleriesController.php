@@ -25,7 +25,6 @@ class GalleriesController extends AppController {
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$this->Auth->allow('add');
 	}
 
 	public function add(){	 
@@ -41,12 +40,31 @@ class GalleriesController extends AppController {
 	public function index(){
 
 		$this->paginate = array(
-			'conditions' =>  array('Gallery.status =' => 2),
+			'conditions' =>  array('Gallery.status =' => 1),
 			'limit' => 10
 		);
 
 		$this->set('galleries', $this->paginate('Gallery'));
 
+	}
+
+	public function pending_galleries(){
+		$this->paginate = array(
+			'conditions' =>  array('Gallery.status =' => 2),
+			'limit' => 10
+		);
+
+		$this->set('galleries', $this->paginate('Gallery'));
+	}
+
+	public function delete($id = null){
+		if($this->request->is('get')){
+
+		}
+		if($this->Gallery->delete($id)){
+           $this->Session->setFlash('Berhasil delete Galleries');
+           $this->redirect(array('action' => 'index'));      
+		}
 	}
 
 }

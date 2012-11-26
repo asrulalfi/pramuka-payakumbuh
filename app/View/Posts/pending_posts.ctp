@@ -1,7 +1,9 @@
 <div id="second_tab">
    	<ul>
    		<li><a href="javascript:void(0)" class="selected">List Berita Pending</a></li>
-    	<li><?php echo $this->Html->link(__('List Galery Pending'), array('action' => 'list_posts')) ?></li>
+    	<li>
+        <?php echo $this->Html->link(__('List Galery Pending'), array('controller' => 'galleries', 'action' => 'pending_galleries')) ?>
+      </li>
       <li><?php echo $this->Html->link(__('List komentar Pending'), array('action' => 'list_posts')) ?></li>
     </ul>
 </div>

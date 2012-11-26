@@ -1,7 +1,8 @@
 <div id="second_tab">
-   	<ul>
-   		<li><a href="javascript:void(0)" class="selected">List Galery</a></li>
-    	<li><?php echo $this->Html->link(__('Tambah Galery'), array('action' => 'add')) ?></li>
+    <ul>
+      <li><?php echo $this->Html->link(__('List Berita Pending'), array('controller' => 'posts', 'action' => 'pending_posts')) ?></li>
+      <li><a href="javascript:void(0)" class="selected">List Galleries Pending</a></li>
+      <li><?php echo $this->Html->link(__('List komentar Pending'), array('action' => 'list_posts')) ?></li>
     </ul>
 </div>
 <div class="clean"></div> <!-- pembersih part -->
@@ -16,9 +17,9 @@
     <tr>
     	<td class="check-column"> <input type="checkbox" name="ckall" /></td>
     	<td width="30%"><?php echo $this->Paginator->sort('title');?></td>
-      <td width="30%"><?php echo $this->Paginator->sort('user_id');?></td>
-      <td width="20%"><?php echo $this->Paginator->sort('created');?></td>
-      <td width="30%"><?php echo $this->Paginator->sort('status');?> </td>
+        <td width="30%"><?php echo $this->Paginator->sort('user_id');?></td>
+        <td width="20%"><?php echo $this->Paginator->sort('created');?></td>
+        <td width="30%"><?php echo $this->Paginator->sort('status');?> </td>
     </tr>	
     </thead>
     <tbody>
@@ -29,16 +30,7 @@
       <td valign="top" class="check-column"> 
         <input type="checkbox" value="<?php echo h($gallery['Gallery']['id']); ?>" />
       </td>
-      <td width="30%">
-        <?php echo h($gallery['Gallery']['title']); ?>
-        <section>
-          <?php echo $this->Html->link(__('View'), array('action' => 'view', $gallery['Gallery']['id'])); ?>
-          <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $gallery['Gallery']['id'])); ?>
-          <?php echo $this->Html->link(__('Delete'),
-                array('action' => 'delete', $gallery['Gallery']['id']),
-                null, __('Are you sure you want to delete This post?', $gallery['Gallery']['id'])); ?>
-        </section>
-      </td>
+      <td width="30%"><?php echo h($gallery['Gallery']['title']); ?></td>
       <td width="30%"><?php echo h($gallery['User']['nama']); ?></td>
       <td width="20%"><?php echo date('d F Y', strtotime(h($gallery['Gallery']['created']))); ?></td>
       <td width="30%"><?php echo h($gallery['Gallery']['status']); ?></td>
