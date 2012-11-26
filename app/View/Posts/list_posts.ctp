@@ -36,7 +36,9 @@
       <section>
         <?php echo $this->Html->link(__('View'), array('action' => 'view', $post['Post']['id'])); ?>
 			  <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $post['Post']['id'])); ?>
-			  <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $post['Post']['id']), null, __('Are you sure you want to delete This post?')); ?>
+			  <?php echo $this->Custom->filterContent( $this->Form->postLink(__('Delete'),
+              array('action' => 'delete', $post['Post']['id']), null, __('Are you sure you want to delete This post?')),
+              $this->Session->read('Auth.User.level')); ?>
       </section> 	
 		</td>
 		<td><?php echo h($post['Post']['headline']); ?>&nbsp;</td>

@@ -23,19 +23,21 @@ class CustomHelper extends AppHelper {
 
 	function displayMenu($level){
 		switch ($level) {
-			case 1:
-				$this->menuReporterRedaksi();
-				break;
-			case 2:
-				$this->menuReporterRedaksi();
-				break;
 			case 3:
 				$this->menuAdmin();
 				break;
 			default:
-				# code...
+				$this->menuReporterRedaksi();
 				break;
 		}
+	}
+
+	function filterContent($content, $level){
+		if($level != 3){
+			return "";
+		}
+
+		return $content;
 	}
 
 	function menuAdmin(){

@@ -34,9 +34,10 @@
         <section>
           <?php echo $this->Html->link(__('View'), array('action' => 'view', $gallery['Gallery']['id'])); ?>
           <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $gallery['Gallery']['id'])); ?>
-          <?php echo $this->Html->link(__('Delete'),
+          <?php echo $this->Custom->filterContent( $this->Html->link(__('Delete'),
                 array('action' => 'delete', $gallery['Gallery']['id']),
-                null, __('Are you sure you want to delete This post?', $gallery['Gallery']['id'])); ?>
+                null, __('Are you sure you want to delete This post?', $gallery['Gallery']['id'])),
+                $this->Session->read('Auth.User.level')); ?>
         </section>
       </td>
       <td width="30%"><?php echo h($gallery['User']['nama']); ?></td>
