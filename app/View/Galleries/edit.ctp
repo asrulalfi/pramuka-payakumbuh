@@ -1,28 +1,65 @@
-<div class="galleries form">
-<?php echo $this->Form->create('Gallery');?>
-	<fieldset>
-		<legend><?php echo __('Edit Gallery'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('title');
-		echo $this->Form->input('teks');
-		echo $this->Form->input('status');
-		echo $this->Form->input('tag');
-		echo $this->Form->input('keyword');
-		echo $this->Form->input('user_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit'));?>
+<div id="second_tab">
+   	<ul>
+    	<li><a href="javascript:void(0)" class="selected" >Tambah Galery</a></li>
+        <li><?php echo $this->Html->link(__('List Galery'), array('action' => 'index'));?></li>
+    </ul>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<div class="clean"></div> <!-- pembersih part -->
+<div id="content_bottom">
+  <div>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Gallery.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Gallery.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Galleries'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
-	</ul>
+  <?php echo $this->Session->flash(); ?>
+
+  <h2> Tambah Berita </h2>
+
+  <?php echo $this->Form->create('Gallery', 
+            array(
+              'type' => 'file',
+              'multiple'=>'multiple',
+              'inputDefaults' => array(
+                'div' => false,
+                'between' => "<br />",
+              )
+            )
+        );?>
+    <ul id="entri_data">
+    	<li>
+          <p>
+            <?php echo $this->Form->input('Gallery.user_id', array('type' => 'hidden')); ?>
+            <?php echo $this->Form->input('Gallery.title'); ?>
+          </p>
+        </li>
+        <li>
+          <p><?php echo $this->Tinymce->input('Gallery.teks', array(
+			                    'label' => 'Content',
+                                'type' => 'textarea'
+			                  	), array(
+                            		'language' => 'en'
+			                  	),
+			                  	'basic'
+		        ); ?>
+        </p>
+        </li>
+        <li>
+          <p><?php echo $this->Form->input('Gallery.tag'); ?></p>
+        </li>
+        <li>
+            <p> <?php echo $this->Form->input('Gallery.keyword'); ?></em>
+            </p>
+        </li>
+        <li>
+            <p> <?php $status = array('1' => 'Publish', '2' => 'Tidak publish');
+		echo $this->Form->input('Gallery.status', array('type' => 'select',
+			                                    'options' => $status,
+			                                    'empty' => 'Please select')); ?></em>
+            </p>
+        </li>
+        <li>
+        	<p> <input type="submit" value="tambah" class="submit_user"  /></p>
+            <p></p>
+        </li>
+    </ul>	
+    <?php echo $this->Form->end();?>
+  </div>	
+  <div class="clean"></div><!-- clean -->
 </div>

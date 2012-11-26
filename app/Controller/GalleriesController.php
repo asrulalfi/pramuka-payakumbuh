@@ -48,6 +48,20 @@ class GalleriesController extends AppController {
 
 	}
 
+	public function edit($id = null){
+		$this->Gallery->id = $id;
+
+		if($this->request->is('get')){
+			$this->request->data = $this->Gallery->read();
+		}else{
+			if($this->Gallery->save($this->request->data)){
+				$this->Session->setFlash('Berhasil update gallery');		
+			}else{
+				$this->Session->setFlash('Gagal update gallery');
+			}
+		}
+	}
+
 	public function pending_galleries(){
 		$this->paginate = array(
 			'conditions' =>  array('Gallery.status =' => 2),
