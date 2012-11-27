@@ -10,7 +10,7 @@
   	<?php echo $this->Session->flash(); ?>
     <h2 id="list_head"> List Berita </h2>
   
-    <form action="proses.php" method="post">
+    <?php echo $this->Form->create('Post', array('action' => 'delete_all')) ?>
     <table border="0" class="list_form" width="900px">
     <thead>
     <tr>
@@ -29,7 +29,7 @@
 	foreach ($posts as $post): ?>
     <tr>
     	<td valign="top" class="check-column"> 
-          <input type="checkbox" value="<?php echo h($post['Post']['id']); ?>"  name="iduser[]" />
+          <input type="checkbox" value="<?php echo h($post['Post']['id']); ?>"  name="idpost[]" />
         </td>
 		<td>
 			<?php echo h($post['Post']['title']); ?>
@@ -59,11 +59,14 @@
     </tbody>
     <tfoot>
     <tr>
-    	<td colspan="8"> <input type="submit" name="deleteuser" value="delete" class="submit_user"  /></td>
+    	<td colspan="8">
+        <input type="hidden" value="list_posts"  name="action" />
+        <input type="submit" value="delete" class="submit_user"  />
+      </td>
     </tr>	
     </tfoot>
     </table>
-    </form>
+    <?php echo $this->Form->end(); ?>
     <div class="clean"></div>
 	<div class="paging">
 	<?php

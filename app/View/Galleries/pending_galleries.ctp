@@ -11,7 +11,7 @@
   	<?php echo $this->Session->flash(); ?>
     <h2 id="list_head"> List Galery </h2>
   
-    <form action="proses.php" method="post">
+    <?php echo $this->Form->create('Gallery', array('action' => 'publish')); ?>
     <table border="0" class="list_form" width="900px">
     <thead>
     <tr>
@@ -40,11 +40,14 @@
     </tbody>
     <tfoot>
     <tr>
-    	<td colspan="5"> <input type="submit" value="delete" class="submit_user"  /></td>
+    	<td colspan="5">
+        <input type="hidden" value="pending_gallaries" name="action"  />
+        <input type="submit" value="publish" class="submit_user"  />
+      </td>
     </tr>	
     </tfoot>
     </table>
-    </form>
+    <?php echo $this->Form->end(); ?>
     <div class="clean"></div>
 	<div class="paging">
 	<?php

@@ -134,4 +134,31 @@ class PostsController extends AppController {
 		$this->set('pending_posts', $data);
 	}
 
+	public function publish(){
+		if($this->request->is('get')){
+           
+		}else{
+			for($i=0; $i < count($this->request->data("idpost")); $i++){
+				$this->Post->id = $this->request->data("idpost.$i");
+				$this->Post->saveField('status', 1);	
+			}
+			$this->Session->setFlash('Berhasil publish berita');
+		}
+
+		$redirect = ($this->request->data('action')) ? $this->request->data('action') : "list_posts";
+		$this->redirect(array('action' => $redirect));
+	}
+
+	public function delete_all(){
+		if($this->request->is('post')){
+			for($i=0; $i < count($this->request->data("idpost")); $i++){
+				$this->Post->id = $this->request->data("idpost.$i");
+				$this->Post->delete();	
+			}
+			$this->Session->setFlash('Berhasil delete berita');
+		}
+		$redirect = ($this->request->data('action')) ? $this->request->data('action') : "list_posts";
+		$this->redirect(array('action' => $redirect));
+	}
+
 }
