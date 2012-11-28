@@ -49,9 +49,9 @@
         </li>
         <li>
             <p> <?php $status = array('1' => 'Publish', '2' => 'Tidak publish');
-		echo $this->Form->input('Gallery.status', array('type' => 'select',
-			                                    'options' => $status,
-			                                    'empty' => 'Please select')); ?></em>
+		                  echo $this->Form->input('Gallery.status', array('type' => 'select',
+			                                        'options' => $status,
+			                                        'empty' => 'Please select')); ?></em>
             </p>
         </li>
         <li>

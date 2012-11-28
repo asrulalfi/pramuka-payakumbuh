@@ -15,7 +15,11 @@ class UsersController extends AppController {
     
   public $layout = "admin";
 
-  public $helpers = array('Tinymce', 'Custom');
+  public $helpers = array(
+            'Tinymce',
+            'Custom',
+            'Js' => array('Jquery', 'Prototype'),
+  );
 
   public $components = array(
     'Paginator',
@@ -33,14 +37,12 @@ class UsersController extends AppController {
 
 	public function index(){
 
-    debug($this->Session->read('Auth.User'));
-
 		$this->paginate = array(
     	    'conditions' => array('User.username LIKE' => '%a%'),
     	    'limit' => 10 
         );
 
-        $data = $this->paginate('User');
+    $data = $this->paginate('User');
 		$this->set('users', $data);
 	}
     
@@ -83,6 +85,10 @@ class UsersController extends AppController {
 
     public function login(){
       $this->layout = "login";
+
+      if($this->Session->check('Auth.User')){
+        $this->redirect(array('controller' => 'posts', 'action' => 'pending_posts'));
+      }
 
       if ($this->request->is('post')) {
         if ($this->Auth->login()) {

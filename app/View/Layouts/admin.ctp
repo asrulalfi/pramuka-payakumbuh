@@ -30,6 +30,8 @@ $cakeDescription = __d('cake_dev', 'Pramukap payakumbuh');
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('admin.css');
+    echo $this->Html->script('jquery.js');
+    echo $this->Html->script('configurations.js');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');

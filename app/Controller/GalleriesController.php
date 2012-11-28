@@ -83,10 +83,12 @@ class GalleriesController extends AppController {
 
 	public function publish(){
 		if($this->request->is('post')){
-			for($i = 0; $i < count($this->request->data('idpost')); $i++){
-				$this->Gallery->id = $this->request->data("idpost.$i");
+			for($i = 0; $i < count($this->request->data('idgallery')); $i++){
+				$this->Gallery->id = $this->request->data("idgallery.$i");
 				$this->Gallery->saveField('status', 1);
 			}
+
+			$this->Session->setFlash('Berhasil publish gallery');
 		}
 
 		$redirect = ($this->request->data) ? $this->request->data('action') : "index";
@@ -95,10 +97,12 @@ class GalleriesController extends AppController {
 
 	public function delete_all(){
 		if($this->request->is('post')){
-			for($i = 0; $i < count($this->request->data('idpost')); $i++){
-				$this->Gallery->id = $this->request->data("idpost.$i");
+			for($i = 0; $i < count($this->request->data('idgallery')); $i++){
+				$this->Gallery->id = $this->request->data("idgallery.$i");
 				$this->Gallery->delete();
 			}
+
+			$this->Session->setFlash('Berhasil delete gallery');
 		}
 
 		$redirect = ($this->request->data) ? $this->request->data('action') : "index";

@@ -10,7 +10,7 @@
   	<?php echo $this->Session->flash(); ?>
     <h2 id="list_head"> List Galery </h2>
   
-    <?php echo $this->Form->create('Galery', array('action' => 'delete_all')); ?>
+    <?php echo $this->Form->create('Gallery', array('action' => 'delete_all')); ?>
     <table border="0" class="list_form" width="900px">
     <thead>
     <tr>

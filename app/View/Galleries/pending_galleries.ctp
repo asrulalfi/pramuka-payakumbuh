@@ -28,7 +28,7 @@
 	foreach ($galleries as $gallery): ?>
     <tr class="">
       <td valign="top" class="check-column"> 
-        <input type="checkbox" value="<?php echo h($gallery['Gallery']['id']); ?>" />
+        <input type="checkbox" value="<?php echo h($gallery['Gallery']['id']); ?>" name="idgallery[]" />
       </td>
       <td width="30%"><?php echo h($gallery['Gallery']['title']); ?></td>
       <td width="30%"><?php echo h($gallery['User']['nama']); ?></td>
@@ -41,7 +41,7 @@
     <tfoot>
     <tr>
     	<td colspan="5">
-        <input type="hidden" value="pending_gallaries" name="action"  />
+        <input type="hidden" value="pending_galleries" name="action"  />
         <input type="submit" value="publish" class="submit_user"  />
       </td>
     </tr>	

@@ -61,8 +61,10 @@
     </tbody>
     <tfoot>
     <tr>
-      <input type="hidden" value="pending_posts"  name="action" />
-    	<td colspan="8"> <input type="submit" value="publish" class="submit_user"  /></td>
+    	<td colspan="8">
+        <input type="hidden" value="pending_posts"  name="action" />
+        <input type="submit" value="publish" class="submit_user"  />
+      </td>
     </tr>	
     </tfoot>
     </table>

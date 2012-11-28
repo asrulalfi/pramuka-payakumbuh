@@ -77,11 +77,11 @@
       </p>
     </li>
     <li>
-      <p> 
-        <?php $status = array('1' => 'Publish', '2' => 'Tidak publish');
-		          echo $this->Form->input('status', array('type' => 'select',
-			                                    'options' => $status,
-			                                    'empty' => 'please select')); ?></em>
+      <p> <?php $status = array('1' => 'Publish', '2' => 'Tidak publish');
+                echo $this->Custom->filterContent($this->Form->input('status', array('type' => 'select',
+                                          'options' => $status,
+                                          'empty' => 'Please select')),
+                     $this->Session->read('Auth.User.id')) ; ?></em>
       </p>
     </li>
     <li>

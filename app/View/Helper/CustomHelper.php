@@ -51,15 +51,16 @@ class CustomHelper extends AppHelper {
                 </li>
                 <li>".$this->Html->link(__('Galery'), array('controller' => 'Galleries', 'action' => 'index'),
                     array('class' => 'judul'))."
-         		</li>
-          		<li><a href='?pil=pages' class='judul'>Pages</a></li>
-          		<li><a href='?pil=komentar' class='judul'>Komentar</a></li>
-          		<li>".$this->Html->link(__('Users'), array('controller' => 'users', 'action' => 'index'), 
+         		    </li>
+          		  <li><a href='?pil=pages' class='judul'>Pages</a></li>
+          		  <li>".$this->Html->link(__('Komentar'), array('controller' => 'comments', 'action' => 'index'),
+                    array('class' => 'judul'))."</li>
+          		  <li>".$this->Html->link(__('Users'), array('controller' => 'users', 'action' => 'index'), 
                 		array('class' => 'user'))."
-          		</li>
-          		<li>".$this->Html->link(__('logout'), array('controller' => 'users', 'action' => 'logout'),
+          		  </li>
+          	 	  <li>".$this->Html->link(__('logout'), array('controller' => 'users', 'action' => 'logout'),
                 	  array('class' => 'logout'))."
-          		</li>
+          		  </li>
         	</ul>";
 	}
 
@@ -74,12 +75,13 @@ class CustomHelper extends AppHelper {
                 </li>
                 <li>".$this->Html->link(__('Galery'), array('controller' => 'Galleries', 'action' => 'index'),
                     array('class' => 'judul'))."
-         		</li>
-          		<li><a href='?pil=pages' class='judul'>Pages</a></li>
-          		<li><a href='?pil=komentar' class='judul'>Komentar</a></li>
-          		<li>".$this->Html->link(__('logout'), array('controller' => 'users', 'action' => 'logout'),
+         		    </li>
+          		  <li><a href='?pil=pages' class='judul'>Pages</a></li>
+          		  <li><li>".$this->Html->link(__('Komentar'), array('controller' => 'comments', 'action' => 'index'),
+                    array('class' => 'judul'))."</li></li>
+          		  <li>".$this->Html->link(__('logout'), array('controller' => 'users', 'action' => 'logout'),
                 	  array('class' => 'logout'))."
-          		</li>
+          	  	</li>
         	</ul>";
 	}
 }

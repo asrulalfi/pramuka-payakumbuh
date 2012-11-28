@@ -1,7 +1,7 @@
 <div id="second_tab">
    	<ul>
     	<li><a href="?pil=user" class="selected" >Tambah berita</a></li>
-        <li><?php echo $this->Html->link(__('List Berita'), array('action' => 'index'));?></li>
+        <li><?php echo $this->Html->link(__('List Berita'), array('action' => 'list_posts'));?></li>
     </ul>
 </div>
 <div class="clean"></div> <!-- pembersih part -->
@@ -73,9 +73,10 @@
         </li>
         <li>
             <p> <?php $status = array('1' => 'Publish', '2' => 'Tidak publish');
-		echo $this->Form->input('status', array('type' => 'select',
+		                  echo $this->Custom->filterContent($this->Form->input('status', array('type' => 'select',
 			                                    'options' => $status,
-			                                    'empty' => 'Please select')); ?></em>
+			                                    'empty' => 'Please select')),
+                           $this->Session->read('Auth.User.id')) ; ?></em>
             </p>
         </li>
         <li>

@@ -40,7 +40,7 @@
         <p> <?php echo $this->Form->input('username'); ?></p>
       </li>
       <li>
-        <p><?php echo $this->Form->input('password', array('empty' => true, 'value' => '')); ?></p>
+        <p><?php echo $this->Form->input('password', array('empty' => true, 'id' => 'edit_password')); ?></p>
       </li>
       <li>
         <p><?php echo $this->Form->input('confirm_password', array('type' => 'password')); ?></p>

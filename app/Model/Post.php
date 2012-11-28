@@ -94,19 +94,21 @@ class Post extends AppModel {
       )
     );
 
-    function beforeValidate(){
-    	// unset request data if photo field is null
-    	if($this->data['Post']['photo'] == ""){
-    		unset($this->data['Post']['photo']);
-    	}
-        
+    function beforeValidate($data){
+      // unset request data if photo field is null
+      if($this->data['Post']['photo'] == ""){
+        unset($this->data['Post']['photo']);
+      }
+
     	if($this->data['Post']['headline'] == ""){
     		$this->data['Post']['headline'] = 2;
     	}
 
-    	if($this->data['Post']['status'] == ""){
-    		$this->data['Post']['status'] = 2;
-    	}
+    	if(empty($this->data['Post']['status'])){
+    		unset($this->data['Post']['status']);
+    	}else if($this->data['Post']['status'] == ""){
+        $this->data['Post']['status'] = 2;
+      }
     }
 
 }
