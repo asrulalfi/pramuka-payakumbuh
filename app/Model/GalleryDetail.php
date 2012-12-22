@@ -33,9 +33,9 @@ class GalleryDetail extends AppModel {
               'allowed_mime' => array('image/jpeg', 'image/pjpeg', 'image/png'),
               'allowed_ext' => array('.jpg', '.jpeg', '.png'),
               'thumbsizes' => array(
-                  '320x90' => array(
-                      'width' => 320,
-                      'height' => 90
+                  'slider' => array(
+                      'width' => 600,
+                      'height' => 340
                  )
                ),
               'default' => 'default.jpg'

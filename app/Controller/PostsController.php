@@ -13,7 +13,7 @@ class PostsController extends AppController {
  */
 	public $scaffold;
 
-	public $helpers = array('Tinymce', 'Custom');
+	public $helpers = array('Tinymce', 'Custom', 'Text');
 
 	public $layout = "admin";
 
@@ -28,21 +28,22 @@ class PostsController extends AppController {
 
 	public function beforeFilter(){
     	parent::beforeFilter();
-    	$this->Auth->allow('index');
+    	$this->Auth->allow('index', 'read', 'search');
 	}
     
 	public function index(){
+        $this->loadModel('GalleryDetail');
 
 		// change default layout
 		$this->layout = 'application';
 
-		// set pagination
-		$this->paginate = array(
-    	  'limit' => 10
-		);
+		$data = $this->paginate("Post", array('Post.status = 1'));
 
-		$data = $this->paginate("Post");
 		$this->set("posts", $data);
+
+		$this->set("newest_posts", $this->paginate('Post', array('Post.status = 1', 3)));
+		# set data to gallery
+		$this->set("galleries", $this->GalleryDetail->find("all"));
 
 	}
 
@@ -58,8 +59,6 @@ class PostsController extends AppController {
 	}
 
 	public function add(){
-		// change default layout
-		// $this->layout = "admin";
         
         // get list category
 		$categories = $this->Post->Category->find('all');
@@ -86,6 +85,16 @@ class PostsController extends AppController {
 	public function view($id = null){
         
         $id == null ? $this->redirect(array('action' => 'index')) : "";
+
+		$this->Post->id = $id;
+		$this->set("post", $this->Post->read());
+	}
+
+	public function read($id = null){
+        
+        $this->layout = "application";   
+
+		$id == null ? $this->redirect(array('action' => 'index')) : "";
 
 		$this->Post->id = $id;
 		$this->set("post", $this->Post->read());
@@ -159,6 +168,24 @@ class PostsController extends AppController {
 		}
 		$redirect = ($this->request->data('action')) ? $this->request->data('action') : "list_posts";
 		$this->redirect(array('action' => $redirect));
+	}
+
+	public function search(){
+
+		$this->layout = "application";
+
+		// set pagination
+		$this->paginate = array(
+		  'condition' => 'Post.status = 1',	
+    	  'limit' => 10
+		);
+
+		$keyword = $this->request->data('Post.search');
+
+        $cond = array('OR'=>array("Post.title LIKE '%$keyword%'","Post.body LIKE '%$keyword%'"));
+
+		$this->set('posts', $this->paginate("Post", $cond)); 
+            
 	}
 
 }

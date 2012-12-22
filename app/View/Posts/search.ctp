@@ -3,21 +3,8 @@
   <section class="primary_content grid_8  alpha">
     <?php echo $this->Session->flash(); ?>
     
-    <section class="slider-wrapper theme-light">
-      <div id="slider" class="nivoSlider">
-      <?php  foreach ($galleries as $gallery) : ?>
-        <?php echo $this->Html->image('uploads/gallery/'.$gallery["GalleryDetail"]["photo"], array(
-                                  'class' => 'imageIndex',
-                                  'title' => $gallery['Gallery']['title']
-                                )
-                  ); 
-        ?>
-      <?php endforeach; ?>
-      </div>
-    </section>
-    
     <section class="list">
-      <h2> Welcome to Pramuka - Payakumbuh </h2>
+      <h2> Search  : <em> <?php echo $this->request->data('Post.search'); ?> </h2>
 
       <?php 
 

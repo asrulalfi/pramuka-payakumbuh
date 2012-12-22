@@ -31,4 +31,23 @@ class Comment extends AppModel {
 			'order' => ''
 		)
 	);
+
+	public $validate = array(
+		'email' => array(
+			'rule' => 'email',
+			'message' => 'Email tidak valid'
+		),
+		'komentar' => array(
+			'rule' => 'notEmpty',
+			'message' => 'Komentar tidak boleh kosong'
+		),
+		'nama' => array(
+			'rule' => 'notEmpty',
+			'message' => 'Nama tidak boleh kosong'
+		)
+	);
+
+	public function beforeSave($data){
+		$this->data['Comment']['status'] = 2;
+	}
 }

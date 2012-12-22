@@ -27,6 +27,7 @@
  */
 	Router::connect('/', array('controller' => 'posts', 'action' => 'index'));
 	Router::connect('/pramuka-login', array('controller' => 'users', 'action' => 'login'));
+	Router::connect('/read/:id/*', array('controller' => 'posts', 'action' => 'read'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */

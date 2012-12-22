@@ -76,7 +76,7 @@
 		                  echo $this->Custom->filterContent($this->Form->input('status', array('type' => 'select',
 			                                    'options' => $status,
 			                                    'empty' => 'Please select')),
-                           $this->Session->read('Auth.User.id')) ; ?></em>
+                           $this->Session->read('Auth.User.level')) ; ?></em>
             </p>
         </li>
         <li>

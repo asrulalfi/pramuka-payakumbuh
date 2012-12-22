@@ -19,17 +19,11 @@ class Post extends AppModel {
 	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User',
-			'foreignKey' => 'user_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+			'foreignKey' => 'user_id'
 		),
 		'Category' => array(
 			'className' => 'Category',
-			'foreignKey' => 'kategori_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+			'foreignKey' => 'kategori_id'
 		)
 	);
 
@@ -42,15 +36,7 @@ class Post extends AppModel {
 		'Comment' => array(
 			'className' => 'Comment',
 			'foreignKey' => 'post_id',
-			'dependent' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
+			'dependent' => true
 		)
 	);
 
@@ -59,7 +45,7 @@ class Post extends AppModel {
       'title' => array(
          'rule-1' => array(
            'rule' => 'notEmpty',
-           'message' => 'Title tidak boleh kosong',  
+           'message' => 'Title tidak boleh kosong'
          ), 
          'rule-2' => array(
            'rule' => array('minLength', '5'),
@@ -80,35 +66,35 @@ class Post extends AppModel {
       'MeioUpload' => array(
           'photo' => array(
               'dir' => 'img{DS}uploads',
-              'create_directory' => false,
+              'create_directory' => true,
               'allowed_mime' => array('image/jpeg', 'image/pjpeg', 'image/png'),
               'allowed_ext' => array('.jpg', '.jpeg', '.png'),
               'thumbsizes' => array(
                   '320x90' => array(
-                      'width' => 320,
-                      'height' => 90
+                      'width' => 124,
+                      'height' => 93
                  )
                ),
               'default' => 'default.jpg'
           )
       )
-    );
+  );
 
-    function beforeValidate($data){
-      // unset request data if photo field is null
-      if($this->data['Post']['photo'] == ""){
-        unset($this->data['Post']['photo']);
-      }
-
-    	if($this->data['Post']['headline'] == ""){
-    		$this->data['Post']['headline'] = 2;
-    	}
-
-    	if(empty($this->data['Post']['status'])){
-    		unset($this->data['Post']['status']);
-    	}else if($this->data['Post']['status'] == ""){
-        $this->data['Post']['status'] = 2;
-      }
+  function beforeValidate($data){
+    // unset request data if photo field is null
+    if($this->data['Post']['photo'] == ""){
+      unset($this->data['Post']['photo']);
     }
+
+    if($this->data['Post']['headline'] == ""){
+    	$this->data['Post']['headline'] = 2;
+    }
+
+    if(empty($this->data['Post']['status'])){
+    	unset($this->data['Post']['status']);
+    }else if($this->data['Post']['status'] == ""){
+      $this->data['Post']['status'] = 2;
+    }
+  }
 
 }

@@ -28,7 +28,21 @@ class CommentsController extends AppController {
 	}
 	
 	public function add(){
+		if($this->request->is('post')){
+			if($this->Comment->save($this->request->data)){
+				$this->Session->setFlash('Berhasil menambahkan komentar'); 
+			}else{
+				$this->Session->setFlash('Gagal menambahkan komentar');
+			}
 
+			$this->redirect(array(
+				  'controller' => 'posts',
+				  'action' => 'read',
+				  $this->request->data('Comment.post_id'),
+				  str_replace(" ", "-", $this->request->data('Comment.title'))
+				)
+			);
+		}
 	}
 
 	public function index(){

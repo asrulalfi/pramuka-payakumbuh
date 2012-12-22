@@ -21,6 +21,7 @@ class GalleriesController extends AppController {
 					'logoutRedirect' => array('controller' => 'users', 'action' => 'login')
 				)
 		   );
+	
 	public $layout = "admin";
 
 	public function beforeFilter(){

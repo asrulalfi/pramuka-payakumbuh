@@ -30,6 +30,9 @@ $cakeDescription = __d('cake_dev', 'Pramukap payakumbuh');
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('style.css');
+    echo $this->Html->script('jquery.js');
+    echo $this->Html->script('jquery.nivo.slider.js');
+    echo $this->Html->script('configurations.js');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -38,77 +41,78 @@ $cakeDescription = __d('cake_dev', 'Pramukap payakumbuh');
 </head>
 <body>
 
-<!-- FB SHARE -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/id_ID/all.js#xfbml=1&appId=102910126484094";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<!-- FB SHARE -->
+<div class="container_12">
+  <header class="head_content grid_12">
+    <section class="logo grid_6">
+      <h1> Pramuka Kota Payakumbuh 
+        <span>Kwartir Cabang 0314 Kota Payakumbuh, Sumatera Barat</span>
+      </h1>
+    </section>  
+  </header>
 
-<div class="wrap_header">
-    <div id="header" class="layout-web">
-    	<div class="wrap_jam">
-	  <div id="get_time">
-            <p id="the-time"></p>
-            <p id="day-wrap"></p>
-            <p id="the-day"></p>
-            <p id="the-date"></p>
-          </div>
-        </div>
-        <div class="top_menu">
-        <ul>
-            <li><a href="" class="selected">home</a></li>
-            <li><a href="/pages/1/tentang-kami.html">tentang kami</a></li>
-      <li><a href="/pages/2/sejarah-pramuka.html">sejarah pramuka</a></li>
-      <li><a href="/pages/8/hubungi-kami.html">hubungi kami</a></li>
-            </ul>
-        </div>
-        <div class="clean"></div>
-    </div>
-    <div class="clean"></div>
-</div>	
+  <div class="clear"></div>
 
-<div class="logo_header">
-     <div class="layout-web logo-section">
-    	<h1> Pramuka Kota Payakumbuh 
-        	<span>Kwartir Cabang 0314 Kota Payakumbuh, Sumatera Barat</span>
-        </h1>
-        <form action="" method="post">
-        	<input type="text" name="search" 
-            		onclick="if(this.value == 'Search...') this.value='';"  
-                    onblur="if(this.value.length == 0) this.value='Search...';" 
-                    value="Search..."  />
-        </form>
+  <nav class="menu grid_12">
+    <ul>
+      <li><?php echo $this->Html->link('Home', array('controller' => 'posts', 'action' => 'index'), array('class' => 'home')); ?></li>
+      <li><a href="#">Sambutan Ka Kwarcab</a></li>
+      <li><a href="#">Profile Kwarcab</a></li>
+      <li><a href="#">Prestasi</a></li>
+      <li><a href="#">Kegiatan</a></li>
+      <li><a href="#">Galeri</a></li>
+      <li><a href="#">Dewan Kerja Cabang</a></li>
+    </ul>
 
-        <img src="<?=SITE_LINK;?>/resource/images/Spanduk-3.png" />  
-    </div>
-</div>
+    <marquee direction="left" scrollamount="5">
+      Scolling text
+    </marquee>  
+  </nav>
+  
+  <?php echo $this->fetch('content'); ?>
 
-<div class="running_text">
-  <marquee direction="left"> SELAMAT KEPADA WALIKOTA PAYAKUMBUH H. JOSRIZAL ZAIN, SE, MM ATAS PENGHARGAAN LENCANA MELATI </marquee> 
-</div>  
+  <footer class="grid_12">
+    <section  class="footer_box grid_3">
+      <h2>Kontak Kami</h2>
 
-<div class="clean"></div>
+      <p>Kwartir Daerah 11 Jawa Tengah<p>
 
-<div id="content" class="layout-web">
-	<!-- sidebar -->
-	<aside class="sidebar">
-    	<? include ('sidebar.php'); ?>		
-    </aside>
-    <!-- end Sidebar -->
-    <?php echo $this->Session->flash(); ?>
-    <?php echo $this->fetch('content'); ?>
+      <p>
+        Gedung Pramuka Lt.5 <br />
+        Jl. Pahlawan no. 8 Semarang <br />
+        Tel: +(024) 8311163. <br />
+        Fax: +(024) 8311902. <br />
+      </p>
+ 
+      <p>Email: humas.kwardajateng@yahoo.co.id</p>
+      <p>Admin : pramukajateng1@gmail.com</p>
+    </section>
+
+    <section  class="footer_box grid_3 alpha">
+      <h2> Berita terbaru </h2>
+
+      <ul>
+        <li> Lorem ipsum </li>
+        <li> Lorem ipsum </li>
+        <li> Lorem ipsum </li>
+        <li> Lorem ipsum </li>
+      </ul> 
+
+    </section>
+
+    <section  class="footer_box grid_3 alpha">
+      <h2> Pengunjung </h2>
+      <p> We have 13 guests and no members online </p>
+    </section>
     
-</div>
-<footer class="layout-web">
-	<div class="layout-web">
-    	<em> Copyright 2012 BUM Media Informatika. All Right Reserved <span> CSS3 Valid </span>  <span> HTML5 Valid </span> </em>
-    </div>
-</footer>
-<?php echo $this->element('sql_dump'); ?>
+    <section  class="footer_box grid_3 alpha">
+      <h2> Follow us </h2>
+    </section>
+
+  </footer>
+  <div class="copyright grid_12">
+    <p> Copyright 2012 - <?php echo date("Y"); ?>, www.pramuka-payakumbuh.or.id
+  </div> 
+</div><!-- end Container -->
+<!-- <?php # echo $this->element('sql_dump'); ?> -->
 </body>
 </html>
