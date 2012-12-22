@@ -89,7 +89,7 @@ class phpthumb {
 	var $config_error_fontsize                       = 1;
 	var $config_error_die_on_error                   = false;
 	var $config_error_silent_die_on_error            = false;
-	var $config_error_die_on_source_failure          = true;
+	var $config_error_die_on_source_failure          = false;
 
 	// * Anti-Hotlink Configuration:
 	var $config_nohotlink_enabled                    = true;
