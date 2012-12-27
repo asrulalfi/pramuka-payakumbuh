@@ -13,12 +13,31 @@
       	  	<?php echo $post['User']['nama']; ?>
       	  </span>
         </section> 
+        <span> 
           <?php echo $this->Html->image('uploads/'.$post['Post']['photo'], array('class' => 'imageRead')); ?>
+          <em class="photo_text"><?php echo $post['Post']['photo_text']; ?></em>
       	  <?php echo $post['Post']['body']; ?>
+        </span>  
+        <div class="clear"></div> 
   
       </article>
 
       <div class="clear"></div>
+      
+      <section class="comment_list">
+        <h2> Komentar </h2>
+        <ul>  
+          <li>
+            <p><b>Nama</b></p>
+            <p> Komentar </p>  
+          </li>
+          <li>
+            <p><b>Nama</b></p>
+            <p> Komentar </p>  
+          </li>
+        </ul>
+        <h4><a>Komentar lain</a></h4>       
+      </section>  
 
       <section id="comment_form">
         <?php echo $this->Form->create('Comment', array(

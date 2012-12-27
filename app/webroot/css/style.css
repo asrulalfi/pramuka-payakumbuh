@@ -108,7 +108,7 @@ article p{
 }
 
 .list article section h3 a, .read article section h3{
-	font-size: 18px;
+	font-size: 20px;
 	color: #19718C;
 }
 
@@ -118,13 +118,30 @@ article p{
 }
 
 .list article section p, .read article p{
-	font-size: 12px;
-	line-height: 17px;
+	font-size: 13px;
+	line-height: 150%;
 }
 
 .read article section h3{
 	font-size: 35px;
 	line-height: 45px;
+}
+
+.read .photo_text{
+	font-size: 12px;
+	background: #999;
+	padding: 3px 5px;
+	display: block;
+	margin: 0;
+	color:#ffffff;
+	margin-bottom: 10px;
+}
+
+.read article{
+	margin: 0 5px;
+	padding: 0 5px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #999999;
 }
 
 .imageIndex{
@@ -133,9 +150,9 @@ article p{
 }
 
 .imageRead{
-	width: 300px;
+	width: 600px;
+	height: 330px;
 	display: inline-block;
-	padding: 0 10px 10px 0;
 }
 
 .paging{
@@ -233,3 +250,44 @@ footer{
   #comment_form #CommentKomentar{
   	width: 600px;
   }
+
+  #comment_form label{
+  	font-size: 11px;
+  }
+
+.comment_list{
+  margin: 15px 5px;
+  border: 1px solid #043B4C;
+}
+
+  .comment_list h2{
+  	background: #19718C;
+  	color: #ffffff;
+  	padding: 5px 10px;
+  }
+
+  .comment_list li{
+  	padding: 5px 5px;
+  	border-bottom: 1px solid #1D8DAF;
+  }
+
+  .comment_list p{
+    font-size: 12px;
+  }
+
+  .comment_list h4{
+  	background: #1D8DAF;
+  }
+
+  .comment_list h4 a{
+  	padding: 3px;
+  	font-size: 14px;
+  	color:#ffffff;
+  	display: block;
+  	text-align: center;
+  	cursor: pointer;
+  }
+
+    .comment_list h4 a:hover{
+    	text-decoration: underline;
+    }

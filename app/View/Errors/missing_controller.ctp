@@ -70,7 +70,18 @@ $cakeDescription = __d('pramuka', 'Pramukap payakumbuh');
     </marquee>  
   </nav>
   
-  <?php echo $this->fetch('content'); ?>
+  <div class="content grid_12 ">
+    <section class="primary_content grid_8  alpha">
+      <h1> 404 ERROR PAGE </h1>
+    </section>
+    
+    <aside class="sidebar grid_4 omega alpha">
+      <?php echo $this->element('sidebar'); ?>
+    <aside>
+
+  <div class="clear"></div>  
+
+  </div>
 
   <footer class="grid_12">
     <section  class="footer_box grid_3">
