@@ -29,7 +29,7 @@
                     )
                   )
               ); ?>
-          <li>
+          <li class="name_and_email">
             <p>
               <?php echo $this->Form->input('Comment.post_id', array('type' => 'hidden', 'value' => $post['Post']['id'])); ?>
               <?php echo $this->Form->input('title', array('type' => 'hidden', 'value' => $post['Post']['title'])); ?>
@@ -46,7 +46,7 @@
           </li>
           <li>
             <p>
-              <?php echo $this->Form->input('add comment', array('type' => 'submit', 'label' => false)); ?>
+              <?php echo $this->Form->input('Add Comment', array('type' => 'submit', 'label' => false)); ?>
             </p>  
           </li>
         <?php $this->Form->end(); ?>    

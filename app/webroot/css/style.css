@@ -212,3 +212,24 @@ footer{
 .search_form input[type=text]{
 	width: 215px;
 }
+
+#comment_form{
+	margin: 20px 5px;
+}
+
+  #comment_form li{
+  	list-style: none;
+  }
+
+  #comment_form form li.name_and_email p{
+    float: left;
+    width: 50%;
+  }
+
+  #comment_form li.name_and_email input[type=text]{
+    width: 290px;
+  }
+
+  #comment_form #CommentKomentar{
+  	width: 600px;
+  }

@@ -31,6 +31,7 @@ $cakeDescription = __d('cake_dev', 'Pramukap payakumbuh');
 
 		echo $this->Html->css('style.css');
     echo $this->Html->script('jquery.js');
+    echo $this->Html->script('html5shiv.js');
     echo $this->Html->script('jquery.nivo.slider.js');
     echo $this->Html->script('configurations.js');
 
@@ -48,6 +49,7 @@ $cakeDescription = __d('cake_dev', 'Pramukap payakumbuh');
         <span>Kwartir Cabang 0314 Kota Payakumbuh, Sumatera Barat</span>
       </h1>
     </section>  
+    <div class="clear"></div>
   </header>
 
   <div class="clear"></div>
